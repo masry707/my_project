@@ -42,8 +42,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'pry'
 end
+gem 'pg' # cause heroku working with pg db
 
-group :development do
-  gem 'pg' # cause heroku working with pg db
+group :production do
   gem 'rails_12factor'
 end
