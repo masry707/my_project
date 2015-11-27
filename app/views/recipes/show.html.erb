@@ -26,7 +26,8 @@
       </div>
       <p>
           <span class="quiet">
-            <small><%= time_ago_in_words(@recipe.created_at) %> ago</small>
+            <small>created: <%= time_ago_in_words(@recipe.created_at) %> ago</small>,
+            <small>updated: <%= time_ago_in_words(@recipe.updated_at) %> ago</small>
           </span>
       </p>
     </div>

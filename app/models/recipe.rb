@@ -10,7 +10,7 @@ class Recipe < ActiveRecord::Base
 
   validate :picture_size
 
-
+  default_scope { order(updated_at: :desc) }
 
   # numbers of likes
   def get_likes
