@@ -11,6 +11,14 @@
       <div class="col-lg-6 well">
         <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
         <p><%= recipe.summary %></p>
+        <div class="pull-right likes">
+          <%= link_to like_recipe_path(recipe, like: true), method: :post do %>
+              (<%= recipe.get_likes %>) Like
+          <% end %>&nbsp&nbsp&nbsp
+          <%= link_to like_recipe_path(recipe, like: false), method: :post do %>
+              (<%= recipe.get_dislikes %>) Dislike
+          <% end %>
+        </div>
         <p>
           <span class="quiet">
             <small><%= time_ago_in_words(recipe.created_at) %> ago</small>

@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.sort_by { |likes| likes.get_likes}
   end
 
   def show
@@ -38,8 +38,15 @@ class RecipesController < ApplicationController
     end
   end
 
-  def destroy
-
+  def like
+    @recipe = Recipe.find(params[:id])
+    @like = Like.create(like: params[:like], recipe: @recipe, chef: Chef.first)
+    if @like.valid?
+      flash[:success] = 'Your selection was successful!'
+    else
+      flash[:danger] = 'You can like/dislike once!'
+    end
+    redirect_to :back
   end
 
   private
