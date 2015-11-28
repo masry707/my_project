@@ -7,8 +7,25 @@
     <div class="nav-item">
       <%= link_to 'Link 1', '', class: 'btn btn-default btn-warning'%>
     </div>
-    <div class="nav-item">
-      <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-default btn-warning'%>
-    </div>
+    <% if logged_in? %>
+      <div class="nav-item">
+        <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-default btn-warning'%>
+      </div>
+      
+      <div class="dropdown nav-item">
+        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.chef_name %>
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'My Profile', chef_path(current_user) %></li>
+          <li><%= link_to 'Edit Profile', edit_chef_path(current_user) %></li>
+          <li class="divider"></li>
+          <li><%= link_to 'Logout', logout_path %></li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <%= link_to 'Login', login_path, class: 'btn btn-default btn-success'%>
+      </div>
+    <% end %>
   </div>
 </header>
