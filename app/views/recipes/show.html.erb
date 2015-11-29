@@ -16,6 +16,7 @@
     </div>
     <h3><%= @recipe.summary %></h3>
     <div class="well">
+      <p>Styles: <%= render @recipe.styles %></p>
       <strong>Steps:</strong><br>
       <%= simple_format @recipe.description %>
       <div class="pull-right likes">

@@ -1,0 +1,11 @@
+<%= render 'shared/errors', obj: @style %>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 well">
+      <%= form_for @style do |f| %>
+            <%= f.text_field :name %>
+            
+            <%= f.submit 'Add new Style', class: 'btn btn-success' %>
+        <% end %>  
+    </div>
+</div>

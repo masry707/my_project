@@ -4,12 +4,12 @@
     <div class="nav-item">
       <%= link_to 'Recipes', recipes_path, class: 'btn btn-default btn-warning'%>
     </div>
-    <div class="nav-item">
-      <%= link_to 'Link 1', '', class: 'btn btn-default btn-warning'%>
-    </div>
     <% if logged_in? %>
       <div class="nav-item">
         <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-default btn-warning'%>
+      </div>
+      <div class="nav-item">
+        <%= link_to 'New Style', new_style_path, class: 'btn btn-default btn-warning'%>
       </div>
       
       <div class="dropdown nav-item">
